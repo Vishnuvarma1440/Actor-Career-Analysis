@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor Career Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Actor Career Analysis</h1>
+            <p>Analyze actor careers using AI and real-time data</p>
+        </header>
+
+        <main>
+            <!-- Search Section -->
+            <section class="search-section">
+                <h2>Search Actor</h2>
+                <div class="search-container">
+                    <input type="text" id="actorSearch" placeholder="Enter actor name (e.g., Leonardo DiCaprio)">
+                    <button onclick="searchActor()">🔍 Search</button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </section>
+
+            <!-- Popular Actors Section -->
+            <section class="popular-section">
+                <h2>Popular Actors</h2>
+                <div id="popularActors" class="actors-grid">
+                    <div class="loading">Loading popular actors...</div>
+                </div>
+            </section>
+
+            <!-- Actor Details Section -->
+            <section id="actorDetails" class="actor-details" style="display: none;">
+                <h2>Actor Analysis</h2>
+                <div class="actor-info">
+                    <div class="basic-info">
+                        <h3 id="actorName">Actor Name</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label">Birth Year:</span>
+                                <span id="birthYear">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Career Start:</span>
+                                <span id="careerStart">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Total Movies:</span>
+                                <span id="totalMovies">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Career Score:</span>
+                                <span id="careerScore" class="score">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Section -->
+                <div class="analysis-section">
+                    <div class="analysis-card">
+                        <h4>Performance Metrics</h4>
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <span class="metric-label">Average Rating</span>
+                                <span id="avgRating" class="metric-value">-</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Total Box Office</span>
+                                <span id="totalBoxOffice" class="metric-value">-</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Career Trend</span>
+                                <span id="careerTrend" class="metric-value">-</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Consistency</span>
+                                <span id="consistency" class="metric-value">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h4>AI Recommendations</h4>
+                        <ul id="recommendations" class="recommendations">
+                            <li>Loading recommendations...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Movies Section -->
+                <div class="movies-section">
+                    <h4>Recent Movies</h4>
+                    <div id="moviesList" class="movies-list">
+                        <div class="loading">Loading movies...</div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <h4>Career Visualization</h4>
+                    <div class="charts-container">
+                        <div class="chart-item">
+                            <canvas id="ratingChart"></canvas>
+                        </div>
+                        <div class="chart-item">
+                            <canvas id="boxOfficeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Actor Career Analysis - Powered by AI & Real-time Data</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
